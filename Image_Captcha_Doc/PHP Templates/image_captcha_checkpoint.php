@@ -16,7 +16,7 @@
     <div id="message-after-email">
         <?php
 
-        if($_GET['success'])
+        if(isset($_GET['success']))
             if($_GET['success'] == "true") {
                 echo('<div id="image-captcha-success-result-message">
                 <p>Thank you for your message, we\'ll get back as soon as possible!</p>

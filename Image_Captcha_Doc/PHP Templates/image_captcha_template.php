@@ -65,7 +65,6 @@
         </div>
     </div>
     <script src="Image_Captcha_Doc/JS_Files/captcha-images-data.js"></script>
-    <script src="Image_Captcha_Doc/JS_Files/set-fields-values.js"></script>
     <script src="Image_Captcha_Doc/JS_Files/captcha-images-template-app.js"></script>
     <script src="Image_Captcha_Doc/JS_Files/captcha-pop-up.js"></script>
 </body>

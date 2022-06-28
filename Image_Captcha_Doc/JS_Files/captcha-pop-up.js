@@ -113,10 +113,12 @@ mainFormBtn.addEventListener("click", function(){
         alert("Please make sure you've completed the required fields and you've checked the captcha as well!")
     } else{
         document.querySelector('#image-captcha-checkpoint #message-after-email').style.display = 'block'
-    }
-
-    
+    }    
 })
+
+
+if(document.querySelector('#image-captcha-checkpoint #message-after-email>div'))
+    document.querySelector('#image-captcha-checkpoint #message-after-email').style.display = 'block'
 
 xBtn = document.querySelector("#image-captcha-template-container #image-captcha-template .fa-x")
 
