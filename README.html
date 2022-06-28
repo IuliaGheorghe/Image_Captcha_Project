@@ -1,0 +1,67 @@
+<!-- 
+
+    This is all you need to know about the Image Captcha:
+
+    A. Implementation
+
+    In order to be able to use the image captcha in your project, you'll need to:
+
+    1. Save the "Image_Captcha_Doc" directory in the same directory with the file that needs the image captcha
+    2. Rename your page with a .php extension (instead of .html, if you haven't done it before) to be able to require other files later
+    3. Use the code below before your submit button to be able to see the "Are you human?" checkbox
+
+        <?php 
+            require_once("Image_Captcha_Doc/PHP Templates/image_captcha_checkpoint.php");
+        ?>
+
+    4. Use the code below at the end of your page to be able to add the image captcha template to your page
+
+        <?php 
+            require_once("Image_Captcha_Doc/PHP Templates/image_captcha_template.php");
+        ?>
+            
+
+    ! At the end of this process, when the user will click the submit button, you'll have a session variable $_SESSION['captcha'] which will store the result of the captcha (true / false) Based on the value of this variable, you'll be able to make your validations
+
+
+
+    B. How to add more image sets?
+
+    Part I (add the images):
+
+    1. On your server, navigate to Image_Captcha_Doc/image captcha and paste a folder with your image set
+    
+    Part II (set the meaning of each image in code):
+
+    1. Go to Image_Captcha_Doc/JS_Files
+    2. Open the captcha-images-data.js file in your code editor
+    3. Add a new object to the base array (captchaImagesData) -- check down below, you can copy paste the code
+        
+        {
+            possibleLabels: ['plastic', 'jellyfish'],
+            plastic:['plastic vs jellyfish/A1.jpg','plastic vs jellyfish/A2.jpg', 'plastic vs jellyfish/A3.jpg', 'plastic vs jellyfish/A4.jpg'],
+            jellyfish:['plastic vs jellyfish/B1.jpg','plastic vs jellyfish/B2.jpg', 'plastic vs jellyfish/B3.jpg', 'plastic vs jellyfish/B4.jpg', 'plastic vs jellyfish/B5.jpg']
+        },
+
+    4. Add all your labels in the possibleLabels property (e.g: if you have a set with dogs and cats, set the possibleLabels property to  possibleLabels: ['dogs', 'cats'])
+    5. For each label, create a key with its name and associate an array with the names of the images related to that key 
+        (e.g: 
+            dogs:['dogvscats1.png', 'dogsvscats3.png'],
+            cats:['dogvscats2.png', 'dogsvscats4.png', 'dogsvscats5.png', 'dogsvscats6.png', 'dogsvscats7.png', 'dogsvscats8.png', 'dogsvscats9.png'],
+        )
+
+    !WARNING: please make sure each set has at least 9 pictures
+    *RECOMANDATION: for each lable, make sure you have at least one related picture (NOT MANDATORY, BUT USEFUL AND RECOMMENDED)
+
+
+    C. Change the style of the template
+
+    The style of the image captcha template can be changed from Image_Captcha_Doc/image-captcha-template-style.css
+
+    Let's say you want to change the purple color of the template (let's make it blue)
+    You can do that in the #image-captcha-template #image-captcha-template-form selector, by changing the background-color property to blue
+
+    *Make sure you clear your cache frequently (or you can use the !important tag when you can't see you changes live)
+    
+
+ -->
