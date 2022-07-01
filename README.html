@@ -6,19 +6,24 @@
 
     In order to be able to use the image captcha in your project, you'll need to:
 
-    1. Save the "Image_Captcha_Doc" directory in the same directory with the file that needs the image captcha
-    2. Rename your page with a .php extension (instead of .html, if you haven't done it before) to be able to require other files later
-    3. Use the code below before your submit button to be able to see the "Are you human?" checkbox
+    1. Save the "Image_Captcha_Doc" directory (and the "validation.php" file in case you want to use this validation code for your mail function) in the same directory with the file that needs the image captcha
+    2 (optional) If you decided to use this standard validation php code, make sure you update your form action to "validation.php"
+    3. Rename your page with a .php extension (instead of .html, if you haven't done it before) to be able to require other files later
+    4. Use the code below before your submit button to be able to see the "Are you human?" checkbox
 
         <?php 
             require_once("Image_Captcha_Doc/PHP Templates/image_captcha_checkpoint.php");
         ?>
 
-    4. Use the code below at the end of your page to be able to add the image captcha template to your page
+    5. Use the code below at the end of your page to be able to add the image captcha template to your page
 
         <?php 
             require_once("Image_Captcha_Doc/PHP Templates/image_captcha_template.php");
         ?>
+    
+    6. (optional) If you decided to use this standard validation php code, for each value you want to keep in case of a failure, make sure you add a key in the $failedData array from 'validation.php' and you place this code in the HTML file, near your input/textarea/select etc 
+        value="<?php if(isset($_GET['success'])) if($_GET['success']=='false') {echo(explode("-&&&&-", base64_decode($_GET['key']))[index])}?>"
+     where index represents the position of your value in the $failedData array (check example in contact.php model form)
             
 
     ! At the end of this process, when the user will click the submit button, you'll have a session variable $_SESSION['captcha'] which will store the result of the captcha (true / false) Based on the value of this variable, you'll be able to make your validations

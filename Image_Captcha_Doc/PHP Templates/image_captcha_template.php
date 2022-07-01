@@ -64,6 +64,12 @@
             </div>
         </div>
     </div>
+    <div id="alert-popUp-msg-container">
+        <div id="alert-popUp-msg">
+            <p>Please make sure you've completed the required fields correctly and you've checked the captcha as well!</p>
+            <button>OK</button>
+        </div>
+    </div>
     <script src="Image_Captcha_Doc/JS_Files/captcha-images-data.js"></script>
     <script src="Image_Captcha_Doc/JS_Files/captcha-images-template-app.js"></script>
     <script src="Image_Captcha_Doc/JS_Files/captcha-pop-up.js"></script>

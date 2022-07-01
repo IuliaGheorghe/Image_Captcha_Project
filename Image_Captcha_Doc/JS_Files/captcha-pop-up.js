@@ -110,7 +110,23 @@ mainFormBtn.addEventListener("click", function(){
 
     if(requiredValues.includes("") || validEmails.includes(false)){
         // Alert user to check captcha
-        alert("Please make sure you've completed the required fields and you've checked the captcha as well!")
+        // alert("Please make sure you've completed the required fields and you've checked the captcha as well!")
+
+        document.addEventListener('invalid', (function () {
+            return function (e) {
+                e.preventDefault();
+            };
+        })(), true);
+        
+
+        const alertPopupContainer = document.getElementById("alert-popUp-msg-container")
+        alertPopupContainer.style.display = "block"
+        const popUpOkBtn = alertPopupContainer.querySelector("button")
+        popUpOkBtn.addEventListener("click", function(){
+            
+            alertPopupContainer.style.display = "none"            
+            
+        })
     } else{
         document.querySelector('#image-captcha-checkpoint #message-after-email').style.display = 'block'
     }    
@@ -124,6 +140,7 @@ xBtn = document.querySelector("#image-captcha-template-container #image-captcha-
 
 xBtn.addEventListener("click", function(){
     popup.style.display="none"
+    document.querySelector("body").style.overflowY = "auto"
 })
 
 tryDifferentCaptchaBtn = document.querySelector("#image-captcha-template #image-captcha-template-form #lets-try-different")
